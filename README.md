@@ -16,7 +16,13 @@ docker pull daocloud.io/gtg0991/php7
 
 # Included
 
-*   php
+*   php ver7.0.7
+    -   php-fpm
+    -   mysqli
+    -   redis
+    -   gd
+    -   curl
+    -   opcache
 *   supervisor
 
 
