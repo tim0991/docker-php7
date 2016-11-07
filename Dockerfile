@@ -31,6 +31,9 @@ RUN apt-get update && apt-get install -y \
     xz-utils \
     unzip \
     vim \
+    netcat \
+    redis-tools \
+    mysql-client \
     --no-install-recommends -qqy  && rm -r /var/lib/apt/lists/*
 
 ENV PHP_VERSION php-7.0.7
@@ -86,8 +89,7 @@ RUN apt-get update && apt-get install -y supervisor --no-install-recommends -qqy
 
 #generate few files
 RUN touch $PHP_DIR/var/log/php-fpm.log \
-&& rm -rf /tmp/* \
-&& alias ll='ls -alF'
+&& rm -rf /tmp/*
 
 
 EXPOSE 9000

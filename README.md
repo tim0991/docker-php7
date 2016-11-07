@@ -19,10 +19,11 @@ docker pull daocloud.io/gtg0991/php7
 *   php ver7.0.7
     -   php-fpm
     -   mysqli
-    -   redis
     -   gd
     -   curl
     -   opcache
+    -   xdebug
+    -   redis
 *   supervisor
 
 
@@ -40,7 +41,7 @@ tim0991/php7
 ```
 
 当你运行容器的时候， `/usr/bin/start.sh`将被执行，所以你可以将一些初始化命令写入这个脚本中
-##example with start.sh
+## example with start.sh
 ```
 #!/bin/bash
 /usr/local/php/sbin/php-fpm &
