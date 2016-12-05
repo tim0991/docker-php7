@@ -27,6 +27,7 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libmcrypt-dev \
     libc-client2007e-dev \
+    libfreetype6-dev \
     libkrb5-dev \
     xz-utils \
     unzip \
