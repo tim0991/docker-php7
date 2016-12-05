@@ -48,7 +48,7 @@ RUN curl http://uk1.php.net/distributions/${PHP_VERSION}.tar.xz -o /tmp/${PHP_VE
     --with-config-file-scan-dir=$PHP_DIR/etc/conf.d \
     -with-iconv --enable-mbstring \
     -with-mcrypt -with-zlib \
-    -with-gd -enable-gd-native-ttf --with-jpeg-dir --with-png-dir -with-freetype-dir \
+    -with-gd -enable-gd-native-ttf --with-jpeg-dir --with-png-dir --with-freetype-dir \
     -enable-fpm --with-fpm-user=www-data --with-fpm-group=www-data \
     -with-openssl --with-zlib -enable-pcntl -enable-sockets -with-xmlrpc  -with-curl -enable-opcache \
     -enable-mysqlnd -with-pdo-mysql  -with-mysqli \
