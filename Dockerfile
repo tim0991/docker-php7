@@ -48,10 +48,10 @@ RUN curl http://uk1.php.net/distributions/${PHP_VERSION}.tar.xz -o /tmp/${PHP_VE
     --with-config-file-path=$PHP_DIR/etc \
     --with-config-file-scan-dir=$PHP_DIR/etc/conf.d \
     -with-iconv --enable-mbstring \
-    -with-mcrypt -with-zlib \
+    -with-mcrypt --with-zlib --enable-zip \
     -with-gd -enable-gd-native-ttf --with-jpeg-dir --with-png-dir --with-freetype-dir \
     -enable-fpm --with-fpm-user=www-data --with-fpm-group=www-data \
-    -with-openssl --with-zlib -enable-pcntl -enable-sockets -with-xmlrpc  -with-curl -enable-opcache \
+    -with-openssl -enable-pcntl -enable-sockets -with-xmlrpc  -with-curl -enable-opcache \
     -enable-mysqlnd -with-pdo-mysql  -with-mysqli \
     --with-imap --with-imap-ssl --with-kerberos\
 && make -j "$(nproc)" \
@@ -62,6 +62,7 @@ RUN curl http://uk1.php.net/distributions/${PHP_VERSION}.tar.xz -o /tmp/${PHP_VE
 && ln -s $PHP_DIR/bin/php /usr/bin/php \
 && ln -s $PHP_DIR/bin/phpize /usr/bin/phpize
 
+#zip module
 
  
 #install redis extension
