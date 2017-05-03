@@ -29,6 +29,7 @@ RUN apt-get update && apt-get install -y \
     libc-client2007e-dev \
     libfreetype6-dev \
     libkrb5-dev \
+    libicu-dev \
     xz-utils \
     unzip \
     vim \
