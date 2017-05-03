@@ -53,7 +53,7 @@ RUN curl http://uk1.php.net/distributions/${PHP_VERSION}.tar.xz -o /tmp/${PHP_VE
     -enable-fpm --with-fpm-user=www-data --with-fpm-group=www-data \
     -with-openssl -enable-pcntl -enable-sockets -with-xmlrpc  -with-curl -enable-opcache \
     -enable-mysqlnd -with-pdo-mysql  -with-mysqli \
-    --with-imap --with-imap-ssl --with-kerberos --enable-intl --enable-libxml\
+    --with-imap --with-imap-ssl --with-kerberos --enable-intl --enable-libxml \
 && make -j "$(nproc)" \
 && make install \
 && make clean \
