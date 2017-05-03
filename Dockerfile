@@ -30,6 +30,7 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     libkrb5-dev \
     libicu-dev \
+    libxslt1-dev \
     xz-utils \
     unzip \
     vim \
