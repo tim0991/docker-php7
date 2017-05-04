@@ -93,6 +93,8 @@ RUN curl https://codeload.github.com/xdebug/xdebug/zip/master -o /tmp/xdebug.zip
 #supervisor
 RUN apt-get update && apt-get install -y supervisor --no-install-recommends -qqy && rm -r /var/lib/apt/lists/*
 
+#add composer
+RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer && chmod a+x /usr/local/bin/composer
 
 #generate few files
 RUN touch $PHP_DIR/var/log/php-fpm.log \
