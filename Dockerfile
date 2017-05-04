@@ -64,7 +64,10 @@ RUN curl http://uk1.php.net/distributions/${PHP_VERSION}.tar.xz -o /tmp/${PHP_VE
 && ln -s $PHP_DIR/bin/php /usr/bin/php \
 && ln -s $PHP_DIR/bin/phpize /usr/bin/phpize
 
-#zip module
+#install xsl ext
+RUN cd ext/xsl && ./configure --with-php-config=$PHP_DIR/bin/php-config  && make \
+&& cp modules/xsl.so $PHP_DIR/lib/php/extensions/no-debug-non-zts-20151012/
+
 
  
 #install redis extension
