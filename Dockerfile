@@ -65,7 +65,7 @@ RUN curl http://uk1.php.net/distributions/${PHP_VERSION}.tar.xz -o /tmp/${PHP_VE
 && ln -s $PHP_DIR/bin/phpize /usr/bin/phpize
 
 #install xsl ext
-RUN cd /tmp/${PHP_VERSION}/ext/xsl && ./configure --with-php-config=$PHP_DIR/bin/php-config  && make \
+RUN cd /tmp/${PHP_VERSION}/ext/xsl && phpize && ./configure --with-php-config=$PHP_DIR/bin/php-config  && make \
 && cp modules/xsl.so $PHP_DIR/lib/php/extensions/no-debug-non-zts-20151012/
 
 
