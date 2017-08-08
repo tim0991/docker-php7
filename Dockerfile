@@ -10,7 +10,6 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
     re2c \
     xz-utils \
-    git \
     --no-install-recommends -qqy && rm -r /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get install -y \
@@ -38,6 +37,8 @@ RUN apt-get update && apt-get install -y \
     netcat \
     redis-tools \
     mysql-client \
+    git \
+    supervisor \
     --no-install-recommends -qqy  && rm -r /var/lib/apt/lists/*
 
 ENV PHP_VERSION php-7.0.7
@@ -91,15 +92,13 @@ RUN curl https://codeload.github.com/xdebug/xdebug/zip/master -o /tmp/xdebug.zip
 && cp modules/xdebug.so $PHP_DIR/lib/php/extensions/no-debug-non-zts-20151012/ \
 && make clean
 
-#supervisor
-RUN apt-get update && apt-get install -y supervisor --no-install-recommends -qqy && rm -r /var/lib/apt/lists/*
 
 #add composer
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer && chmod a+x /usr/local/bin/composer
 
-#generate few files
+#generate few files and configure .bashrc
 RUN touch $PHP_DIR/var/log/php-fpm.log \
-&& rm -rf /tmp/*
+&& rm -rf /tmp/* && echo 'alias ll=ls -alh' >> /root/.bashrc
 
 
 EXPOSE 9000
