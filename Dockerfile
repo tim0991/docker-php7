@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
     re2c \
     xz-utils \
+    git \
     --no-install-recommends -qqy && rm -r /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get install -y \
