@@ -98,7 +98,7 @@ RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/lo
 
 #generate few files and configure .bashrc
 RUN touch $PHP_DIR/var/log/php-fpm.log \
-&& rm -rf /tmp/* && echo 'alias ll=ls -alh' >> /root/.bashrc
+&& rm -rf /tmp/* && echo 'alias ll="ls -alh"' >> /root/.bashrc
 
 
 EXPOSE 9000
