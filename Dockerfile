@@ -39,6 +39,7 @@ RUN apt-get update && apt-get install -y \
     mysql-client \
     git \
     supervisor \
+    ssh \
     --no-install-recommends -qqy  && rm -r /var/lib/apt/lists/*
 
 ENV PHP_VERSION php-7.0.7
