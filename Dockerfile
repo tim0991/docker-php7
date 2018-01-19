@@ -1,7 +1,5 @@
 FROM debian:jessie
 
-RUN echo -e 'deb http://mirrors.aliyun.com/debian/ jessie main non-free contrib \rdeb http://mirrors.aliyun.com/debian/ jessie-proposed-updates main non-free contrib\r deb-src http://mirrors.aliyun.com/debian/ jessie main non-free contrib\r deb-src http://mirrors.aliyun.com/debian/ jessie-proposed-updates main non-free contrib' > /etc/apt/sources.list
-
 RUN apt-get update && apt-get install -y \
     autoconf \
     file \
