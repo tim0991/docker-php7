@@ -74,9 +74,8 @@ RUN cd /tmp/${PHP_VERSION}/ext/xsl && phpize && ./configure --with-php-config=$P
 
  
 #install redis extension
-RUN curl https://codeload.github.com/phpredis/phpredis/zip/php7 -o /tmp/phpredis-php7.zip \
-&& unzip /tmp/phpredis-php7.zip -d /tmp/ \
-&& cd /tmp/phpredis-php7 \
+RUN cd /tmp/ && git clone https://github.com/phpredis/phpredis.git redis \
+&& cd redis \
 && phpize \
 && ./configure --with-php-config=$PHP_DIR/bin/php-config \
 && make -j "$(nproc)" \
