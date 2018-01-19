@@ -42,7 +42,7 @@ RUN apt-get update && apt-get install -y \
     ssh \
     --no-install-recommends -qqy  && rm -r /var/lib/apt/lists/*
 
-ENV PHP_VERSION php-7.0.7
+ENV PHP_VERSION php-7.2.1
 ENV PHP_DIR /usr/local/php
 
 #install php7
