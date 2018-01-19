@@ -69,7 +69,7 @@ RUN curl http://uk1.php.net/distributions/${PHP_VERSION}.tar.xz -o /tmp/${PHP_VE
 
 #install xsl ext
 RUN cd /tmp/${PHP_VERSION}/ext/xsl && phpize && ./configure --with-php-config=$PHP_DIR/bin/php-config  && make \
-&& cp modules/xsl.so $PHP_DIR/lib/php/extensions/no-debug-non-zts-20151012/
+&& cp modules/xsl.so $PHP_DIR/lib/php/extensions/no-debug-non-zts-20170718/
 
 
  
@@ -90,7 +90,7 @@ RUN curl https://codeload.github.com/xdebug/xdebug/zip/master -o /tmp/xdebug.zip
 && phpize \
 && ./configure --enable-xdebug --with-php-config=$PHP_DIR/bin/php-config \
 && make -j "$(nproc)" \
-&& cp modules/xdebug.so $PHP_DIR/lib/php/extensions/no-debug-non-zts-20151012/ \
+&& cp modules/xdebug.so $PHP_DIR/lib/php/extensions/no-debug-non-zts-20170718/ \
 && make clean
 
 
