@@ -1,0 +1,55 @@
+php7:
+  image: tim0991/php7
+  ports:
+    - "9997:9000"
+  volumes:
+    - "/Users/HFY/etc/php/php.ini:/usr/local/php/etc/php.ini"
+    - "/Users/HFY/etc/php/www.conf:/usr/local/php/etc/php-fpm.d/www.conf"
+    - "/Users/HFY/www/prestashop/config/php/supervisor.conf:/etc/supervisor/conf.d/supervisor.conf"
+    - "/Users/HFY/www/prestashop/config/php/start.sh:/usr/local/bin/start.sh"
+    - "/Users/HFY/www:/var/www/"
+    - "/Users/HFY/.composer:/root/.composer"
+  container_name: php7
+  restart: always
+  extra_hosts:
+    - "hostip:$HOSTIP"
+
+php7.0.29:
+  image: php:7.0.29-fpm
+  ports:
+    - "9999:9000"
+  volumes:
+    - "/Users/HFY/www/:/var/www/"
+  container_name: php7.0.29
+  restart: always
+  extra_hosts:
+    - "hostip:$HOSTIP"
+
+php5:
+  image: 192.168.1.170:5000/php
+  ports:
+    - "9996:9001"
+  volumes:
+    - "/Users/HFY/etc/php/php.ini:/etc/php5/fpm/php.ini"
+    - "/Users/HFY/etc/php/php.ini:/etc/php5/cli/php.ini"
+    - "/Users/HFY/www:/var/www/"
+  container_name: php5
+  command: fpm.sh
+  restart: always
+  extra_hosts:
+    - "hostip:$HOSTIP"
+
+pgsql:
+  image: postgres:10
+  ports:
+    - "5432:5432"
+  volumes:
+    - "/Users/HFY/www/docker-data/postgres:/var/lib/postgresql/data/db-files/"
+  container_name: pgsql
+  restart: always
+  extra_hosts:
+    - "hostip:$HOSTIP"
+  environment:
+    - POSTGRES_PASSWORD=crater10lake
+    - POSTGRES_USER=root
+    - PGDATA=/var/lib/postgresql/data/db-files/
