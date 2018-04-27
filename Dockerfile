@@ -1,5 +1,10 @@
 FROM debian:jessie
 
+# RUN echo 'deb http://mirrors.aliyun.com/debian/ jessie main non-free contrib \n\
+# deb http://mirrors.aliyun.com/debian/ jessie-proposed-updates main non-free contrib\n\
+# deb-src http://mirrors.aliyun.com/debian/ jessie main non-free contrib\n\
+# deb-src http://mirrors.aliyun.com/debian/ jessie-proposed-updates main non-free contrib' > /etc/apt/sources.list
+
 RUN apt-get update && apt-get install -y \
     autoconf \
     file \
@@ -26,6 +31,7 @@ RUN apt-get update && apt-get install -y \
     libpng12-dev \
     libjpeg-dev \
     libmcrypt-dev \
+    libpq-dev \
     libc-client2007e-dev \
     libfreetype6-dev \
     libkrb5-dev \
@@ -46,6 +52,7 @@ ENV PHP_VERSION php-7.2.1
 ENV PHP_DIR /usr/local/php
 
 #install php7
+# RUN curl http://cn2.php.net/distributions/${PHP_VERSION}.tar.xz -o /tmp/${PHP_VERSION}.tar.xz  \
 RUN curl http://uk1.php.net/distributions/${PHP_VERSION}.tar.xz -o /tmp/${PHP_VERSION}.tar.xz  \
 && tar -xvJf /tmp/${PHP_VERSION}.tar.xz -C /tmp/ \
 && cd /tmp/${PHP_VERSION} \
@@ -53,11 +60,11 @@ RUN curl http://uk1.php.net/distributions/${PHP_VERSION}.tar.xz -o /tmp/${PHP_VE
     --with-config-file-path=$PHP_DIR/etc \
     --with-config-file-scan-dir=$PHP_DIR/etc/conf.d \
     -with-iconv --enable-mbstring \
-    -with-mcrypt --with-zlib --enable-zip \
-    -with-gd -enable-gd-native-ttf --with-jpeg-dir --with-png-dir --with-freetype-dir \
+    --with-zlib --enable-zip \
+    -with-gd  --with-jpeg-dir --with-png-dir --with-freetype-dir \
     -enable-fpm --with-fpm-user=www-data --with-fpm-group=www-data \
     -with-openssl -enable-pcntl -enable-sockets -with-xmlrpc  -with-curl -enable-opcache \
-    -enable-mysqlnd -with-pdo-mysql  -with-mysqli \
+    -enable-mysqlnd -with-pdo-mysql  -with-mysqli --with-pdo-pgsql --with-pgsql \
     --with-imap --with-imap-ssl --with-kerberos --enable-intl --with-xsl \
 && make -j "$(nproc)" \
 && make install \
