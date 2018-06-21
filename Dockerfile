@@ -10,7 +10,7 @@ deb http://mirrors.aliyun.com/debian-security/ stretch/updates main non-free con
 deb-src http://mirrors.aliyun.com/debian-security/ stretch/updates main non-free contrib' > /etc/apt/sources.list
 
 
-RUN apt-get update && apt-get install -y  libpng-dev libjpeg-dev libmcrypt-dev \
+RUN apt-get update && apt-get install -y  libpng-dev libjpeg-dev libmcrypt-dev procps \
     && docker-php-ext-install gd mysqli pdo_mysql mcrypt  \
     && printf "\n" | pecl install redis && docker-php-ext-enable redis  \
     && apt-get clean \
