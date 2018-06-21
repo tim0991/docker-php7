@@ -2,3 +2,15 @@ RUN echo 'deb http://mirrors.aliyun.com/debian/ jessie main non-free contrib \n\
 deb http://mirrors.aliyun.com/debian/ jessie-proposed-updates main non-free contrib\n\
 deb-src http://mirrors.aliyun.com/debian/ jessie main non-free contrib\n\
 deb-src http://mirrors.aliyun.com/debian/ jessie-proposed-updates main non-free contrib' > /etc/apt/sources.list
+
+
+deb http://mirrors.aliyun.com/debian stretch main contrib non-free
+deb http://mirrors.aliyun.com/debian stretch-proposed-updates main contrib non-free
+deb http://mirrors.aliyun.com/debian stretch-updates main contrib non-free
+
+deb-src http://mirrors.aliyun.com/debian stretch main contrib non-free
+deb-src http://mirrors.aliyun.com/debian stretch-proposed-updates main contrib non-free
+deb-src http://mirrors.aliyun.com/debian stretch-updates main contrib non-free
+
+deb http://mirrors.aliyun.com/debian-security/ stretch/updates main non-free contrib
+deb-src http://mirrors.aliyun.com/debian-security/ stretch/updates main non-free contrib
