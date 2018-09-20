@@ -9,9 +9,9 @@ FROM php:7-fpm
 # deb http://mirrors.aliyun.com/debian-security/ stretch/updates main non-free contrib\
 # deb-src http://mirrors.aliyun.com/debian-security/ stretch/updates main non-free contrib' > /etc/apt/sources.list
 
-RUN apt-get update && apt-get install -y  libpng-dev libjpeg-dev libpq-dev libmcrypt-dev 
+RUN apt-get update && apt-get install -y  libpng-dev libjpeg-dev libpq-dev 
 
-RUN docker-php-ext-install gd pdo_pgsql pgsql mcrypt\
+RUN docker-php-ext-install gd pdo_pgsql pgsql \
     && printf "\n" | pecl install redis && docker-php-ext-enable redis
 
 RUN apt-get update && apt-get install libmagickwand-dev -y && pecl install imagick-beta \
