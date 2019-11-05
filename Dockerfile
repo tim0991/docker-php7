@@ -2,7 +2,7 @@ FROM php:7-fpm
 
 RUN apt-get update && apt-get install -y  libpng-dev libjpeg-dev libpq-dev libfreetype6-dev vim
 
-RUN docker-php-ext-install gd pdo_mysql pdo_pgsql pgsql exif \
+RUN docker-php-ext-install gd pdo_mysql pdo_pgsql pgsql exif mysqli bcmath \
     && printf "\n" | pecl install redis && docker-php-ext-enable redis
 
 RUN docker-php-ext-configure gd \
